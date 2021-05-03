@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ParameterServlet
+ * Servlet implementation class InfoServlet
  */
-@WebServlet("/param")
-public class ParameterServlet extends HttpServlet {
+@WebServlet("/info")
+public class InfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ParameterServlet() {
+    public InfoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,28 +30,30 @@ public class ParameterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-
-        // 꼭 다이렉트로 url?name=xxx&age=xxx 이렇게입력안하고 html form 태그중 input태그로 입력가능하다
 		out.println("<html>");
-		out.println("<head><title>form</title></head>");
+		out.println("<head><title>info</title></head>");
 		out.println("<body>");
 		
-		String name = request.getParameter("name");
-		String age = request.getParameter("age");
+		String uri = request.getRequestURI();
+		StringBuffer url = request.getRequestURL();
+		String contentPath = request.getContextPath();
+		String remoteAddr = request.getRemoteAddr();
 		
-		out.println("name : " + name + "<br>");
-		out.println("age : " + age + "<br>");
+		out.println("uri : " + uri + "<br>");
+		out.println("url : " + url + "<br>");
+		out.println("contentPath : " + contentPath + "<br>");
+		out.println("remostAddr : " + remoteAddr + "<br>");
 		
 		out.println("</body>");
 		out.println("</html>");
+		
+		// url : /exam31/info
+		// url : http://localhost:8080/exam31/info
+		// contentPath : /exam31
+		// 아래 주소는 Ipv6로 접속했기때문에 나오는 로컬주소임
+		// remostAddr : 0:0:0:0:0:0:0:1
+		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
 
 }
