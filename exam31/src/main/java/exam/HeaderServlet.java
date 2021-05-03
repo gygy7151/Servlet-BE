@@ -68,5 +68,14 @@ public class HeaderServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
+// 아래와 같이 결과값이 나옴
+// 	//host : localhost:8080 
+// connection : keep-alive 
+// upgrade-insecure-requests : 1 
+// accept : text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 
+// user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16) AppleWebKit/605.1.15 (KHTML, like Gecko) Safari/522.0 
+// accept-language : ko-kr 
+// cache-control : no-cache 
+// accept-encoding : gzip, deflate 
+//
 }
